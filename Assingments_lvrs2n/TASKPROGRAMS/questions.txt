@@ -1,0 +1,79 @@
+#1
+Get all students by the given qualification
+SELECT * FROM students
+SELECT * FROM students WHERE qualification = 'B.Tech'
+SELECT name, qualification FROM students
+SELECT qualification FROM students
+Answer:2
+
+#2
+Get count of all the students by qualification
+SELECT * FROM students
+SELECT COUNT(qualification) FROM students
+SELECT qualification, COUNT(*) FROM students GROUP BY qualification
+SELECT qualification FROM students WHERE COUNT(*) > 1
+Answer:3
+
+#3
+Get count of students who got placed
+SELECT * FROM students WHERE placed = 'Yes'
+SELECT COUNT(*) FROM students WHERE placed = 'Yes'
+SELECT placed FROM students
+SELECT name FROM students WHERE status = 'Placed'
+Answer:2
+
+#4
+Get count of students who completed course but not placed
+SELECT COUNT(*) FROM students WHERE completed = 'Yes' AND placed = 'No'
+SELECT COUNT(*) FROM students WHERE status = 'Completed'
+SELECT COUNT(*) FROM students WHERE placed = 'No'
+SELECT * FROM students WHERE completed = 'Yes'
+Answer:1
+
+#5
+Get count of placed and not placed students
+SELECT COUNT(*) FROM students
+SELECT COUNT(*) FROM students GROUP BY placed
+SELECT placed, COUNT(*) FROM students GROUP BY placed
+SELECT * FROM students WHERE placed IS NOT NULL
+Answer:3
+
+#6
+Search student by the given name
+SELECT * FROM students WHERE name = 'John'
+SELECT * FROM students
+SELECT name FROM students
+SELECT name LIKE '%John%' FROM students
+Answer:1
+
+#7
+Get average success rate of the given batch
+SELECT AVG(success_rate) FROM students
+SELECT * FROM students WHERE batch = '2023'
+SELECT AVG(score) FROM students GROUP BY batch
+SELECT batch, AVG(success_rate) FROM students GROUP BY batch
+Answer:4
+
+#8
+Get max percentage scored student details
+SELECT * FROM students ORDER BY percentage DESC LIMIT 1
+SELECT MAX(percentage) FROM students
+SELECT name, MAX(score) FROM students
+SELECT * FROM students WHERE percentage > 90
+Answer:1
+
+#9
+Get all the student names only
+SELECT name FROM students
+SELECT * FROM students
+SELECT name, qualification FROM students
+SELECT DISTINCT name FROM students
+Answer:1
+
+#10
+Get all the student name, qualification, and score
+SELECT name, qualification, score FROM students
+SELECT * FROM students
+SELECT name FROM students
+SELECT qualification, score FROM students
+Answer:1
